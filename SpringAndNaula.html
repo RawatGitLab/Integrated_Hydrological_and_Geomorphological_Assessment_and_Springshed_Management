@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Springs and Naula Survey - 8th Oct 2025. Interactive gallery showcasing traditional water sources in Uttarakhand.">
+    <title>Springs and Naula Survey - 8th Oct 2025</title>
+
+    <!-- Preconnect for faster font loading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <!-- Leaflet CSS with integrity check -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" 
+          integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" 
+          crossorigin=""/>
+
+    
+</head>
+
+    <!-- ==================== MICRO NAVBAR ==================== -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <h2 class="logo">🌊 Spring and Naula Survey</h2>
+            <div class="nav-right">
+                <ul class="nav-menu">
+                    <li><a href="#home" class="nav-link">Home</a></li>
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#gallery" class="nav-link">Gallery</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+                <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+                    <span class="theme-icon">🌓</span>
+                    <span>Theme</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ==================== COMPACT HOME SECTION ==================== -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Springs and Naula Survey in Kholsir Valley, District Bageshwar, Uttarakhand</h1>
+            <p class="hero-subtitle">8th October 2025</p>
+            <p class="hero-description">
+                Documenting traditional water sources across Uttarakhand's Gram Panchayats. 
+                Explore our comprehensive survey of natural springs and historic naulas, 
+                preserving vital water heritage for future generations.
+            </p>
+            <a href="#gallery" class="cta-button">
+                View Survey Gallery
+                <span class="arrow">→</span>
+            </a>
+        </div>
+        <div class="hero-background"></div>
+    </section>
+
+    <!-- ==================== COMPACT FEATURES SECTION ==================== -->
+    <section class="features">
+        <div class="container">
+            <div class="feature-card glass">
+                <div class="feature-icon">📍</div>
+                <h3>12 Locations</h3>
+                <p>Surveyed across multiple Gram Panchayats</p>
+            </div>
+            <div class="feature-card glass">
+                <div class="feature-icon">💧</div>
+                <h3>Water Sources</h3>
+                <p>Springs and traditional Naulas documented</p>
+            </div>
+            <div class="feature-card glass">
+                <div class="feature-icon">📊</div>
+                <h3>Detailed Data</h3>
+                <p>GPS coordinates, discharge rates, and photos</p>
+            </div>
+        </div>
+    </section>
+    
+     <!-- ==================== COMPACT ABOUT SECTION ==================== -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <h1 class="page-title">About the Survey</h1>
+            
+            <div class="about-content glass">
+                <h3>Project Overview</h3>
+                <p>
+                    The Springs and Naula Survey was conducted on 8th October 2025 for mapping the traditional water source in the Kholsir Valley 
+                    District Bageshwar Uttarakhand India. This initiative aims to map natural springs and historic naulas, which have served communities for generations.
+                </p>
+
+                <h3>Methodology</h3>
+                <p>
+                    Our team conducted on-ground surveys using GPS technology to accurately record 
+                    geographical coordinates, elevation data, and water discharge rates. Each location 
+                    was photographed and documented with detailed metadata including Gram Panchayat 
+                    information and physical characteristics.
+                </p>
+
+                <h3>Objectives</h3>
+                <ul>
+                    <li>Document GPS coordinates and elevation of water sources</li>
+                    <li>Measure water discharge rates for sustainable management</li>
+                    <li>Create a digital archive of traditional naulas</li>
+                    <li>Support naula and sping rejuvenation stratagies and plans for sustinable management of water resources</li>
+                    <li>Preserve cultural heritage associated with these water sources</li>
+                </ul>
+
+                <h3>Survey Team</h3>
+                <p>
+                    This survey was conducted by Dr J.S Rawat (Former National Geo-Spatial Chair Professor and Environmental Hydrologist/Geomorphologist) and 
+                    Er Varun Rawat (Senior Software Engineer) in association with the team of Aman NGO, Gram Panchayats and local community members.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== COMPACT GALLERY SECTION ==================== -->
+    <section id="gallery" class="gallery-section">
+        <div class="container">
+            <h1 class="gallery-title">Survey Gallery</h1>
+            <p class="gallery-subtitle">Click on any card to view detailed photos and geolocation</p>
+
+            <div class="search-filter glass">
+                <input type="text" id="searchInput" placeholder="🔍 Search by Naula name or Gram Panchayat...">
+            </div>
+
+            <div class="carousel-container" id="carouselContainer"></div>
+        </div>
+    </section>
+
+    <!-- ==================== COMPACT CONTACT SECTION ==================== -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h1 class="page-title">Contact Us</h1>
+            
+            <div class="contact-form-wrapper glass">
+                <form id="contactForm" class="contact-form">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" autocomplete="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" autocomplete="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" name="subject" autocomplete="off" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="5" autocomplete="off" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+ 
+                <div class="contact-info">
+                    <h3>Get in Touch</h3>
+                    <p>For inquiries about the survey data, collaboration opportunities, or any questions, please reach out to us.</p>
+                    <div class="info-item">
+                        <span class="icon">📧</span>
+                        <p>varunrawatmailbox2507@gmail.com</p>
+                    </div>
+                    <div class="info-item">
+                        <span class="icon">📧</span>
+                        <p>jsrawat1955@gmail.com</p>
+                    </div>
+                    <div class="info-item">
+                        <span class="icon">📍</span>
+                        <p>Almora Uttarakhand, India</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== PHOTO MODAL ==================== -->
+    <div id="photoModal" class="modal">
+        <span class="modal-close" onclick="closePhotoModal()">&times;</span>
+        <div class="modal-content-wrapper">
+            <div class="modal-header glass">
+                <h2 id="modalTitle"></h2>
+                <p id="modalMetadata"></p>
+            </div>
+            <div class="modal-body">
+                <button class="modal-nav prev" onclick="navigatePhotos(-1)">&#10094;</button>
+                <img id="modalImage" src="" alt="Naula Photo">
+                <button class="modal-nav next" onclick="navigatePhotos(1)">&#10095;</button>
+            </div>
+            <div class="modal-footer glass">
+                <p id="photoCounter"></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== MAP MODAL ==================== -->
+    <div id="mapModal" class="modal">
+        <span class="modal-close" onclick="closeMapModal()">&times;</span>
+        <div class="modal-content-wrapper">
+            <div class="modal-header glass">
+                <h2 id="mapModalTitle"></h2>
+                <p id="mapModalMetadata"></p>
+            </div>
+            <div id="mapContainer"></div>
+        </div>
+    </div>
+
+    <!-- ==================== COMPACT FOOTER ==================== -->
+    <footer class="footer">
+        <p>&copy; 2025 Springs and Naula Survey. All rights reserved.</p>
+    </footer>
+
+    <!-- Leaflet JavaScript -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" 
+            integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" 
+            crossorigin=""></script>
+    
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script> -->
+
+    <!-- Vanta.js Globe Effect -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.globe.min.js"></script> -->
+    <!--  -->
+
+    <!-- Vanilla Tilt.js Library for 3D Tilt Effect -->
+    
+    
+
+    <!-- Leaflet JavaScript -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" 
+            integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" 
+            crossorigin=""></script>
+
+    
+
+    <!-- Vanilla Tilt.js Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
+
+    
+
+</body>
+</html>
