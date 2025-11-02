@@ -4,6 +4,8 @@
 Welcome to the **Springs and Naula Survey** project! This interactive web application documents traditional water sources 
 across multiple Gram Panchayats in the Kholsir Valley, District Bageshwar, Uttarakhand, India. 
 
+https://spring-naula-rejuvenation.netlify.app/
+
 ---
 
 ## 🚀 Project Overview
